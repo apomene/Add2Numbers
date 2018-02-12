@@ -20,7 +20,10 @@ namespace SolutionForm
         #region UI
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Permutation.Solution s = new Permutation.Solution();
+            int[] a = { 1, 2, 3 };
+           var b =  s.Permute(a);
+            var cehck = b;
         }
 
         private void button2_Click(object sender, EventArgs e)
