@@ -11,15 +11,16 @@ namespace Permutation
         public IList<IList<int>> Permute(int[] nums)
         {
             int n = 0;
-            int iterations = fact(nums.Length);
+            int mod = nums.Length;
+            int iterations = fact(mod);
             IList<IList<int>> res = new List<IList<int>>();
             while (n < iterations)
             {
-                for (int i = n; n < iterations; i++)
+                for (int i = n; i < n%nums.Length; i++)
                 {
                     var tmp = nums[i];
-                    nums[i] = nums[n];
-                    nums[n] = tmp;
+                    nums[i] = nums[( i+ n) % mod];
+                    nums[( i+n) % mod] = tmp;
                 }
                 res.Add(nums.ToList());
                 n++;
