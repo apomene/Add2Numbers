@@ -14,18 +14,50 @@ namespace Permutation
             int mod = nums.Length;
             int iterations = fact(mod);
             IList<IList<int>> res = new List<IList<int>>();
-            while (n < iterations)
+            //res.Add(nums);
+            while (n < mod)
             {
-                for (int i = n; i < n%nums.Length; i++)
+                int[] tmpN = null;// NewInt(nums);
+                for (int i = 0; i < mod; i=i+1+n)
                 {
-                    var tmp = nums[i];
-                    nums[i] = nums[( i+ n) % mod];
-                    nums[( i+n) % mod] = tmp;
+                    tmpN = NewInt(nums);
+                    if (n==mod-1)
+                    {
+                        var tmp = tmpN[0];
+                        tmpN[0] = tmpN[1];
+                        tmpN[1] = tmp;
+                        res.Add(tmpN);
+                    }
+                    else
+                    {
+                        var tmp = tmpN[n];
+                        tmpN[n] = tmpN[i];
+                        tmpN[i] = tmp;
+                        res.Add(tmpN);
+                    }                                                                            
                 }
-                res.Add(nums.ToList());
+                nums = NewInt(tmpN);
                 n++;
             }
             return res;
+        }
+
+        public int[] NewInt(int[] a)
+        {
+            var res = new int[a.Length];
+            for (int i=0;i<a.Length;i++)
+            {
+                res[i] = a[i];
+            }
+            return res;
+        }
+
+
+        public void Swap(  int a,  int b,int[] nums)
+        {
+            var tmp = nums[a];
+            nums[a] = nums[b];
+            nums[b] = tmp;
         }
 
 
