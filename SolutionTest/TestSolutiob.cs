@@ -8,6 +8,14 @@ namespace SolutionTest
     public class TestSolution
     {
         [TestMethod]
+        public void InitPermuteTest1()
+        {
+            Permutation.Solution s = new Permutation.Solution();
+            var output = s.InitPermute(1, new int[] { 0, 2 });
+            Assert.IsTrue( 1== 1);
+        }
+
+        [TestMethod]
         public void TestGetNumber1()
         {
             Solution.Solution s1 = new Solution.Solution();

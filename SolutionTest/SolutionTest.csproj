@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Permutation\Permutation.csproj">
+      <Project>{290b3ced-0434-4120-861f-e36b0f33a22e}</Project>
+      <Name>Permutation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Solution\Solution.csproj">
       <Project>{cb246815-e991-4388-acc0-872688a80201}</Project>
       <Name>Solution</Name>
