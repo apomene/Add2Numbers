@@ -10,47 +10,26 @@ namespace Permutation
     {
         public IList<IList<int>> Permute(IList<IList<int>> nums)
         {
-            //int n = 0;
-            //int mod = nums.Length;
-            //int iterations = fact(mod);
-            IList<IList<int>> res = new List<IList<int>>();
-            //res.Add(nums);
-            //while (n < mod)
-            //{
-            //    int[] tmpN = null;// NewInt(nums);
-            //    for (int i = 0; i < mod; i=i+1+n)
-            //    {
-            //        tmpN = NewInt(nums);
-            //        if (n==mod-1)
-            //        {
-            //            var tmp = tmpN[0];
-            //            tmpN[0] = tmpN[1];
-            //            tmpN[1] = tmp;
-            //            res.Add(tmpN);
-            //        }
-            //        else
-            //        {
-            //            var tmp = tmpN[n];
-            //            tmpN[n] = tmpN[i];
-            //            tmpN[i] = tmp;
-            //            res.Add(tmpN);
-            //        }                                                                            
-            //    }
-            //    nums = NewInt(tmpN);
-            //    n++;
-            //}
-            var length = nums.Count;
+             IList<IList<int>> res = new List<IList<int>>();
+             var length = nums.Count;
 
-            if (length==1&&nums[0].Count==1)
+            if ((length == 1 )&&(nums[0].Count == 1))
             {
                 return nums;
             }
-            else
+            else if (length == 1)  // nums[0].Count >1
             {
-                InitPermute()
+                var n = nums[0][0];
+                nums[0].RemoveAt(0);
+                return InitPermute(n, nums[0].ToArray());
             }
-
+            else if (nums[0].Count > 1 ) //length > 1
+            {
+                return res;
+            }
             return res;
+
+           // return res;
         }
 
         public IList<IList<int>> InitPermute(int n,int[] num)
