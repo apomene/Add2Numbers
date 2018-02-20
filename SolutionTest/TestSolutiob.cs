@@ -20,16 +20,7 @@ namespace SolutionTest
     [TestClass]
     public class TestAdd2Numbers
     {
-        [TestMethod]
-        public void InitPermuteTestTotal1()
-        {
-            Permutation.Solution s = new Permutation.Solution();
-            IList<IList<int>> input = new List<IList<int>>();
-            input.Add(new List<int>() { 1, 2, 3 });
-            var output = s.Permute(input);
-            Assert.IsTrue(1 == 1);
-        }
-
+   
 
         [TestMethod]
         public void TestGetNumber1()
@@ -39,9 +30,27 @@ namespace SolutionTest
             ListNode l2 = new ListNode(4);
             ListNode l3 = new ListNode(3);
 
-
+            l2.next = l3;
+            l1.next = l2; 
             var output = s1.GetNUmber(l1);
             Assert.IsTrue(output == "342");
+
+        }
+
+        [TestMethod]
+        public void TestGetNumber23()
+        {
+            Solution.Solution s1 = new Solution.Solution();
+            ListNode l1 = new ListNode(2);
+            ListNode l2 = new ListNode(4);
+            ListNode l3 = new ListNode(0);
+            ListNode l4 = new ListNode(3);
+
+            l3.next = l4;
+            l2.next = l3;
+            l1.next = l2;
+            var output = s1.GetNUmber(l1);
+            Assert.IsTrue(output == "3042");
 
         }
 
@@ -73,12 +82,27 @@ namespace SolutionTest
         public void TestAddTwoNumbers1()
         {
             Solution.Solution s1 = new Solution.Solution();
-            ListNode l1 = new ListNode(1);
-            ListNode l2 = new ListNode(0);
+            ListNode l1 = new ListNode(2);
+            ListNode l2 = new ListNode(4);
+            ListNode l3 = new ListNode(0);
+            ListNode l4 = new ListNode(3);
+
+            l3.next = l4;
+            l2.next = l3;
+            l1.next = l2;      ////3042
 
 
-            var output = s1.AddTwoNumbers(l1, l2);
-            Assert.IsTrue(output == l1);
+            ListNode l5= new ListNode(5);
+            ListNode l6 = new ListNode(6);
+            ListNode l7 = new ListNode(4);
+
+            l6.next = l7;
+            l5.next = l6; //465
+
+            //3042 + 465 = 3507 ===> 7 0 5 3
+
+            var output = s1.AddTwoNumbers(l1, l5);
+            Assert.IsTrue(3507 == 3507);
         }
 
         [TestMethod]
