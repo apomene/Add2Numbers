@@ -20,17 +20,7 @@ namespace SolutionForm
         #region UI
         private void button1_Click(object sender, EventArgs e)
         {
-            Permutation.Solution s = new Permutation.Solution();
-            int[] a = { 1, 2,3,4 };
-           var b =  s.Permute(a);
-            foreach ( var list1 in b)
-            {
-                foreach (var item in list1)
-                {
-                    txtOutPut.AppendText($"{item},");
-                }
-                txtOutPut.AppendText(Environment.NewLine);
-            }
+         
         }
 
         private void button2_Click(object sender, EventArgs e)

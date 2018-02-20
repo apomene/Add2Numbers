@@ -75,8 +75,8 @@ namespace Solution
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            var n1 = GetNUmber(l1).Reverse().ToString();
-            var n2 = GetNUmber(l2).Reverse().ToString();
+            var n1 = GetNUmber(l1);//.Reverse().ToString();
+            var n2 = GetNUmber(l2);//.Reverse().ToString();
             return numberToList(double.Parse(n1) + double.Parse(n2));
         }
 
@@ -93,7 +93,7 @@ namespace Solution
                 temp = temp.next;
             }
             //add last entry 
-            res = temp.val + res;
+            res = res +temp.val;
             return res;
         }
 
@@ -103,7 +103,7 @@ namespace Solution
             {
                 return new ListNode(int.Parse(number.ToString()));
             }
-            var num = number.ToString().Reverse();
+            var num = number.ToString();//.Reverse();
             var l1 = new List<ListNode>();
             foreach (var s in num)
             {

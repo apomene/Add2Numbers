@@ -47,7 +47,7 @@ namespace Permutation
             }
             else
             {
-                InitPermute()
+               // InitPermute();
             }
 
             return res;
