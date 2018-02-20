@@ -104,12 +104,19 @@ namespace Solution
                 return new ListNode(int.Parse(number.ToString()));
             }
             var num = number.ToString();//.Reverse();
+            
+            var l = new ListNode(int.Parse(num[0].ToString()));
             var res = new ListNode(int.Parse(num[0].ToString()));
-
             for (int i = 1; i < num.Length;i++)
             {
-                var l = new ListNode(int.Parse(num[i].ToString()));
-                res.next =l;
+                // res.next = l;                
+                // res.next = l;
+                Connect(res, res);
+
+                res.val = int.Parse(num[i].ToString());
+               // l.val = res.val;
+             //   l.next = res.next;
+
             }
             //var res = new ListNode(l1[0].val);
             //for (int i = 0;i < l1.Count-1;i++)
@@ -120,6 +127,14 @@ namespace Solution
             //res.val = l1[0].val;
 
             return res;
+        }
+
+        public static void Connect(ListNode l1, ListNode l2)
+        {
+
+            ListNode l = new ListNode(l2.val);
+            l.next = l2.next;
+            l1.next = l;
         }
 
     }
@@ -139,9 +154,14 @@ namespace Solution
             return l1.next == null;
         }
 
-        public void Connect(ListNode l1, ListNode l2)
+        public static void Connect(ListNode l1, ListNode l2)
         {
-            l1.next = l2;
+         
+            ListNode l = new ListNode(l2.val);
+            l.next = l2.next;
+            l1.next = l;
         }
+
+       
     }
 }
