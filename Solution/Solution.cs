@@ -137,6 +137,26 @@ namespace Solution
             l1.next = l;
         }
 
+        public ListNode Add(ListNode l1,ListNode l2)
+        {
+            var res = new ListNode(0);
+            if ((l1.next==null)&&(l2.next==null))
+            {
+                var val = l1.val + l2.val;
+                res.val = (val) % 10;
+                if (val / 10 == 1)
+                {
+                    res.next = new ListNode(1);
+                }
+                return res;
+            }
+            else
+            {
+                res = Add(l1.next, l2.next);
+            }
+            return res;
+        }
+     
     }
 
 
